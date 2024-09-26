@@ -29,7 +29,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title> Home </title>
+        <title> Link Up Home </title>
       </Helmet>
 
       {isDesktop ? <HomeNav /> : (

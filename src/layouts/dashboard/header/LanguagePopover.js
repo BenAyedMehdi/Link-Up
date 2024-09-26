@@ -17,9 +17,9 @@ const LANGS = [
     icon: '/assets/icons/ic_flag_de.svg',
   },
   {
-    value: 'fr',
-    label: 'French',
-    icon: '/assets/icons/ic_flag_fr.svg',
+    value: 'ar',
+    label: 'Arabic',
+    icon: '/assets/icons/ic_flag_ar.png',
   },
 ];
 

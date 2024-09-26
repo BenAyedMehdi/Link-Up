@@ -1,8 +1,8 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Jaydon Frankie',
-  email: 'demo@minimals.cc',
+  displayName: 'Dr. John Doe', 
+  email: 'dr@linkup.com',
   photoURL: '/assets/images/avatars/avatar_default.jpg',
 };
 

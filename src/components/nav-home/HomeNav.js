@@ -51,9 +51,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function HomeNav() {
   return (
-    <AppBar color="inherit" position="relative">
-      <Toolbar>
-        <Box >
+    <AppBar color="inherit" position="relative" sx={{ height: '80px' }}>
+      <Toolbar sx={{px: 2.5, py: 3, minHeight: '80px' }}>
+        <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
           <Logo dest="/"/>
         </Box>
         {/* <Typography variant="h3" sx={{ px: 2}}>
@@ -64,10 +64,10 @@ export default function HomeNav() {
 
         <Stack direction="row" spacing={2}>
           <Button color="success" variant="text" href="products">
-            Products
+            Jobs
           </Button>
           <Button color="success" variant="text" href="pricing">
-            Pricing
+            Services
           </Button>
           <Button color="success" variant="text" href="contact">
             Contact
@@ -82,7 +82,7 @@ export default function HomeNav() {
             }}
             href="dashboard"
           >
-            Demo
+            Dashboard
           </Button>
 
         </Stack>

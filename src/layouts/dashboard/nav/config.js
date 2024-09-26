@@ -12,22 +12,22 @@ const navConfig = [
     icon: icon('ic_lock'),
   },
   {
-    title: 'Statistics',
+    title: 'Manage Jobs',
     path: '/dashboard/analytics',
     icon: icon('ic_analytics'),
   },
   {
-    title: 'Predictions',
+    title: 'Manage Users',
     path: '/dashboard/reports',
     icon: icon('ic_blog'),
   },
   {
-    title: 'My products',
+    title: 'Manage Applications',
     path: '/dashboard/products',
     icon: icon('ic_cart'),
   },
   {
-    title: 'Community',
+    title: 'Others',
     path: '/dashboard/companies',
     icon: icon('ic_user'),
   },

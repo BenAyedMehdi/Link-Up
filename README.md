@@ -1,6 +1,7 @@
 # [Demo](https://menjateam.netlify.app/)
+# Link Up | A Recruitment
 
-# Menja Team | Hackathon project
+# TODO
 
 ![preview](public/assets/preview1.JPG)
 ![preview](public/assets/preview2.JPG)

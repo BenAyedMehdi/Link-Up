@@ -63,20 +63,19 @@ export default function HomeNav() {
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" spacing={2}>
-          <Button color="success" variant="text" href="products">
+          <Button color="secondary" variant="text" href="open-positions">
             Jobs
           </Button>
-          <Button color="success" variant="text" href="pricing">
+          <Button color="secondary" variant="text" href="pricing">
             Services
           </Button>
-          <Button color="success" variant="text" href="contact">
+          <Button color="secondary" variant="text" href="contact">
             Contact
           </Button>
           <Button
             color="secondary"
-            variant="outlined"
+            variant="contained"
             style={{
-              backgroundColor: 'white',
               fontSize: '14px',
               fontWeight: 'bold',
             }}

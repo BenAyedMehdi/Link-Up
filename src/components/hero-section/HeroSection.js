@@ -2,8 +2,7 @@ import * as React from 'react';
 import { Button, Typography, Container, Box, Grid } from '@mui/material';
 import ProductHeroLayout from '../product-hero-layout';
 
-const backgroundImage =
-  '/assets/images/consultation-doctors-white.avif';
+const backgroundImage = '/assets/images/consultation-doctors-white.avif';
 
 export default function HeroSection() {
   return (
@@ -16,14 +15,9 @@ export default function HeroSection() {
     >
       {/* Increase the network loading priority of the background image. */}
       <Typography color="inherit" align="center" variant="h2" marked="center">
-      Connecting Medical Professionals Worldwide
+        Connecting Medical Professionals Worldwide
       </Typography>
-      <Typography
-        color="inherit"
-        align="center"
-        variant="h5"
-        sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
-      >
+      <Typography color="inherit" align="center" variant="h5" sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}>
         Find your dream job or the perfect candidate with LinkUp's innovative recruitment platform.
       </Typography>
       <Button
@@ -31,13 +25,12 @@ export default function HeroSection() {
         variant="contained"
         size="large"
         component="a"
-        href="/premium-themes/onepirate/sign-up/"
+        href="open-positions"
         sx={{ minWidth: 200 }}
       >
         Find a Job
       </Button>
       <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
-        
         Apply for a job in 3 minutes.
       </Typography>
     </ProductHeroLayout>

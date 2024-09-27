@@ -1,21 +1,44 @@
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Avatar, Button, Typography, Container, Box, Grid } from '@mui/material';
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  Button,
+  Typography,
+  Container,
+  Box,
+  Grid,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  CardMedia,
+  InputAdornment,
+  IconButton,
+} from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
 import { faker } from '@faker-js/faker';
-import Logo  from '../components/logo/Logo'
+import Iconify from '../components/iconify';
+import Logo from '../components/logo/Logo';
 import { AppOrderTimeline } from '../sections/@dashboard/app';
-import HomeNav from '../components/nav-home/HomeNav';
-import useResponsive from  '../hooks/useResponsive';
+import HomeNav from '../components/nav-home';
+import useResponsive from '../hooks/useResponsive';
+import { ProductList } from '../sections/@dashboard/products';
+import pots from '../_mock/pots';
+import AppFooter from '../components/footer';
 
 // ----------------------------------------------------------------------
 
 const StyledContent = styled('div')(({ theme }) => ({
   maxWidth: 480,
   margin: 'auto',
-  marginBottom:'0px',
-  marginTop:'0px',
+  marginBottom: '0px',
+  marginTop: '0px',
   minHeight: '80vh',
   display: 'flex',
   justifyContent: 'center',
@@ -27,80 +50,148 @@ const StyledContent = styled('div')(({ theme }) => ({
 
 export default function ProductIdeaPage() {
   const isDesktop = useResponsive('up', 'lg');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [locationFilter, setLocationFilter] = useState('');
+  const [jobTypeFilter, setJobTypeFilter] = useState('');
+  const [specialtyFilter, setSpecialtyFilter] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleLocationChange = (event) => {
+    setLocationFilter(event.target.value);
+  };
+
+  const handleJobTypeChange = (event) => {
+    setJobTypeFilter(event.target.value);
+  };
+
+  const handleSpecialtyChange = (event) => {
+    setSpecialtyFilter(event.target.value);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+  };
+
+  const jobs = [
+    { title: 'Job1', location: 'New York', details: 'Details1', image: 'https://source.unsplash.com/random' },
+    { title: 'Job2', location: 'San Francisco', details: 'Details2', image: 'https://source.unsplash.com/random' },
+    { title: 'Job3', location: 'Los Angeles', details: 'Details3', image: 'https://source.unsplash.com/random' },
+  ];
+
+  const filteredJobs = jobs.filter(
+    (job) =>
+      job.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (locationFilter ? job.location === locationFilter : true) &&
+      (jobTypeFilter ? job.type === jobTypeFilter : true) &&
+      (specialtyFilter ? job.specialty === specialtyFilter : true)
+  );
+
   return (
     <>
       <Helmet>
-        <title> Home  </title>
+        <title> Home </title>
       </Helmet>
 
-      {isDesktop ? (
-        <HomeNav />
-      ):(
-        <Logo/>
-      )}
-
+      {isDesktop ? <HomeNav /> : <Logo />}
       <Container maxWidth="xl">
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={8}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
-              <Typography variant="h3" paragraph>
-                Smart sustaibable pot
-              </Typography>
-
-              <Typography marginBottom={10} sx={{ color: 'text.secondary' }}>
-                Our mission is to give you full control over your food. 
-                We are here to help you growing your own fruits and vegetables.
-                Now you can choose to decide, plant, monitor and eat the products you grow.
-              </Typography>
-
-              <Button to="/register" size="large" variant="contained" component={RouterLink}>
-                Get started
+        <Card sx={{ margin: 3 }}>
+          <CardHeader
+            title="Find Your Perfect Medical Job"
+            action={
+              <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+                New Open Position
               </Button>
-            </StyledContent>
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
-              <Box
-                component="img"
-                src= "/assets/illustrations/pro1.jpg"
-                sx={{ height: 450, mx: 'auto', my: { xs: 5, sm: 10 } }}
-              />
-            </StyledContent>
-          </Grid>
-        </Grid>
+            }
+          />
+          <CardContent>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Search Jobs"
+                  variant="outlined"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  InputProps={{
+                    endAdornment: searchTerm &&(
+                      <InputAdornment position="end">
+                        <IconButton onClick={handleClearSearch}>
+                          <ClearIcon />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>Location</InputLabel>
+                  <Select value={locationFilter} onChange={handleLocationChange} label="Location">
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value="New York">New York</MenuItem>
+                    <MenuItem value="San Francisco">San Francisco</MenuItem>
+                    <MenuItem value="Los Angeles">Los Angeles</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>Job Type</InputLabel>
+                  <Select value={jobTypeFilter} onChange={handleJobTypeChange} label="Job Type">
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value="Full-Time">Full-Time</MenuItem>
+                    <MenuItem value="Part-Time">Part-Time</MenuItem>
+                    <MenuItem value="Contract">Contract</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>Specialty</InputLabel>
+                  <Select value={specialtyFilter} onChange={handleSpecialtyChange} label="Specialty">
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value="Cardiology">Cardiology</MenuItem>
+                    <MenuItem value="Neurology">Neurology</MenuItem>
+                    <MenuItem value="Pediatrics">Pediatrics</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <Button variant="contained" fullWidth size="large">
+                  Search
+                </Button>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={4}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
-              <Box
-                component="img"
-                src= "/assets/illustrations/pro2.jpg"
-                sx={{ height: 450, mx: 'auto', my: { xs: 5, sm: 10 } }}
-              />
-            </StyledContent>
-          </Grid>
-          <Grid item xs={12} md={6} lg={8}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
-              <Typography variant="h3" paragraph>
-                Your pots are monitored and controlled
-              </Typography>
-
-              <Typography marginBottom={10} sx={{ color: 'text.secondary' }}>
-                Ready to establish a strong foundation for your body, take serious actions towards your health,
-                and make the world a better place by living a sustainable life?
-              </Typography>
-
-              <Button to="/register" size="large" variant="contained" component={RouterLink}>
-                Get started
-              </Button>
-            </StyledContent>
-          </Grid>
-
+          {filteredJobs.map((job, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <Card>
+                <CardMedia component="img" height="140" image={job.image} alt={job.title} />
+                <CardContent>
+                  <Typography variant="h6">{job.title}</Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    {job.location}
+                  </Typography>
+                  <Typography variant="body2">{job.details}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
-
-       
       </Container>
+      <AppFooter />
     </>
   );
 }

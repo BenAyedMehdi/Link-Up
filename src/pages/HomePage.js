@@ -9,6 +9,7 @@ import { AppOrderTimeline } from '../sections/@dashboard/app';
 import HomeNav from '../components/nav-home/HomeNav';
 import useResponsive from '../hooks/useResponsive';
 import HeroSection from '../components/hero-section';
+import AppFooter from '../components/footer';
 
 // ----------------------------------------------------------------------
 
@@ -39,7 +40,7 @@ export default function HomePage() {
       ) : (
         <>
           <Logo />
-          <Button color="success" variant="text" href="products">
+          <Button color="success" variant="text" href="open-positions">
             Products
           </Button>
           <Button color="success" variant="text" href="pricing">
@@ -64,7 +65,7 @@ export default function HomePage() {
       )}
 
       <Container maxWidth="xl">
-      <HeroSection/>
+        <HeroSection />
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={3}>
             <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
@@ -74,7 +75,7 @@ export default function HomePage() {
 
               <Box
                 component="img"
-                src="/assets/illustrations/work-svgrepo-com.svg"
+                src="/assets/illustrations/quality-4-svgrepo-com.svg"
                 sx={{ height: 160, mx: 'auto', my: { xs: 4, sm: 2 } }}
               />
               <Typography sx={{ color: 'text.secondary' }}>
@@ -117,22 +118,22 @@ export default function HomePage() {
           <Grid item xs={12} md={6} lg={3}>
             <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
               <Typography variant="h3" paragraph>
-                Specialized for Healthcare
+                Career Growth and Development
               </Typography>
 
               <Box
                 component="img"
-                src="/assets/illustrations/stethoscope-2-svgrepo-com.svg"
+                src="/assets/illustrations/work-svgrepo-com.svg"
                 sx={{ height: 160, mx: 'auto', my: { xs: 4, sm: 2 } }}
               />
               <Typography sx={{ color: 'text.secondary' }}>
-                Tailored features for medical professionals and institutions.
+                Tools and resources to help you advance in your medical career.
               </Typography>
             </StyledContent>
           </Grid>
         </Grid>
-
       </Container>
+      <AppFooter />
     </>
   );
 }

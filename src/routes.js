@@ -38,7 +38,7 @@ export default function Router() {
       element: <OurProductsPage />,
     },
     {
-      path: 'products',
+      path: 'open-positions',
       element: <ProductIdeaPage />,
     },
 

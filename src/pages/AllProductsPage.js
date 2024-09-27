@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { Container, Stack, Typography } from '@mui/material';
-import apiCalls from '../api/apiCalls'
+import apiCalls from '../api/apiCalls';
 // components
 import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
 import {
@@ -42,11 +42,11 @@ export default function AllProductsPage() {
   const GetCompanyNameById = async (id) => {
     const found = await apiCalls.GetCompanyById(id);
     return found.compnayName;
-  }; 
+  };
 
-   const allProducts = products.map(  (p, index) => {
+  const allProducts = products.map((p, index) => {
     const tmp = PRODUCTS[index];
-    
+
     // Company name not working yet
     /* let companyName = GetCompanyNameById(p.companyId).then(res => {companyName = res});
      const tmpc = await GetCompanyById(p.companyId)
@@ -57,11 +57,10 @@ export default function AllProductsPage() {
     */
     tmp.name = p.productName;
     tmp.price = p.price;
-    tmp.company = "";
-    console.log('tmp',tmp)  
+    tmp.company = '';
+    console.log('tmp', tmp);
     return tmp;
-  })
-
+  });
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -79,7 +78,7 @@ export default function AllProductsPage() {
 
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Products
+          Search & Contact Applicants
         </Typography>
 
         <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
@@ -93,8 +92,7 @@ export default function AllProductsPage() {
           </Stack>
         </Stack>
 
-        
-        <AppNewsUpdate title="My products" list={veggies} />
+        <AppNewsUpdate title="Applicants in the system" list={veggies} />
         <ProductCartWidget />
       </Container>
     </>

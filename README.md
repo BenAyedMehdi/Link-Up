@@ -2,6 +2,7 @@
 # Link Up | A Recruitment
 
 # TODO
+- Switch to develop branch
 
 ![preview](public/assets/preview1.JPG)
 ![preview](public/assets/preview2.JPG)

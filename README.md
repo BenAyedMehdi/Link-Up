@@ -3,6 +3,7 @@
 
 # TODO
 - Creating development branch
+- Start rework of dashboard
 
 ![preview](public/assets/preview1.JPG)
 ![preview](public/assets/preview2.JPG)

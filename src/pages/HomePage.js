@@ -8,15 +8,17 @@ import Logo from '../components/logo/Logo';
 import { AppOrderTimeline } from '../sections/@dashboard/app';
 import HomeNav from '../components/nav-home/HomeNav';
 import useResponsive from '../hooks/useResponsive';
+import HeroSection from '../components/hero-section';
 
 // ----------------------------------------------------------------------
 
 const StyledContent = styled('div')(({ theme }) => ({
   maxWidth: 480,
+  minHeight: '40vh',
   margin: 'auto',
-  marginBottom:'0px',
-  marginTop:'0px',
-  minHeight: '80vh',
+  marginBottom: '32px',
+  marginTop: '32px',
+  padding: '16px',
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
@@ -32,10 +34,12 @@ export default function HomePage() {
         <title> Link Up Home </title>
       </Helmet>
 
-      {isDesktop ? <HomeNav /> : (
+      {isDesktop ? (
+        <HomeNav />
+      ) : (
         <>
-      <Logo />
-      <Button color="success" variant="text" href="products">
+          <Logo />
+          <Button color="success" variant="text" href="products">
             Products
           </Button>
           <Button color="success" variant="text" href="pricing">
@@ -44,7 +48,7 @@ export default function HomePage() {
           <Button color="success" variant="text" href="contact">
             Contact
           </Button>
-      <Button
+          <Button
             color="secondary"
             variant="outlined"
             style={{
@@ -56,124 +60,78 @@ export default function HomePage() {
           >
             Demo
           </Button>
-          </>
+        </>
       )}
 
       <Container maxWidth="xl">
-      <Grid container spacing={3}>
-          <Grid item xs={12} md={4} lg={4}>
+      <HeroSection/>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
               <Typography variant="h3" paragraph>
-                Plant
+                Job Matching Process
               </Typography>
 
-              <Typography sx={{ color: 'text.secondary' }}>Buy our product and start planting seeds today</Typography>
               <Box
                 component="img"
-                src="/assets/illustrations/plantt.png"
-                sx={{ height: 260, mx: 'auto', my: { xs: 4, sm: 2 } }}
+                src="/assets/illustrations/work-svgrepo-com.svg"
+                sx={{ height: 160, mx: 'auto', my: { xs: 4, sm: 2 } }}
               />
+              <Typography sx={{ color: 'text.secondary' }}>
+                We connect you with the most relevant opportunities.
+              </Typography>
             </StyledContent>
           </Grid>
-          <Grid item xs={12} md={4} lg={4}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
               <Typography variant="h3" paragraph>
-                Monitor
+                Global Network in Germany
               </Typography>
+              <Box
+                component="img"
+                src="/assets/illustrations/world-svgrepo-com.svg"
+                sx={{ height: 160, mx: 'auto', my: { xs: 4, sm: 2 } }}
+              />
 
               <Typography sx={{ color: 'text.secondary' }}>
-                Our app will give you updates, statistics and analytics
+                Access medical positions in Germany from around the world.
               </Typography>
-              <Box
-                component="img"
-                src="/assets/illustrations/monitor.png"
-                sx={{ height: 260, mx: 'auto', my: { xs: 4, sm: 2 } }}
-              />
             </StyledContent>
           </Grid>
-          <Grid item xs={12} md={4} lg={4}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
               <Typography variant="h3" paragraph>
-                Collect
+                Specialized for Healthcare
               </Typography>
 
+              <Box
+                component="img"
+                src="/assets/illustrations/stethoscope-2-svgrepo-com.svg"
+                sx={{ height: 160, mx: 'auto', my: { xs: 4, sm: 2 } }}
+              />
               <Typography sx={{ color: 'text.secondary' }}>
-                When the time comes, enjoy fruits or vegetable you collect
+                Tailored features for medical professionals and institutions.
               </Typography>
-              <Box
-                component="img"
-                src="/assets/illustrations/collect.webp"
-                sx={{ height: 260, mx: 'auto', my: { xs: 4, sm: 2 } }}
-              />
             </StyledContent>
           </Grid>
-        </Grid>
-
-        <Grid container spacing={3}>
-
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={6} lg={3}>
             <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
               <Typography variant="h3" paragraph>
-                Our mission
+                Specialized for Healthcare
               </Typography>
 
-              <Typography marginBottom={10} sx={{ color: 'text.secondary' }}>
-                To make hydroponics technology for farming vegetables easy and accessible for cities citizens, so we can
-                maximize the production, use the spaces efficiently, and make the most needed veggies accessible for the
-                citizens and with low costs
-              </Typography>
-
-              
-
-              <Button to="/register" size="large" variant="contained" component={RouterLink}>
-                Get started
-              </Button>
-            </StyledContent>
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
               <Box
                 component="img"
-                src="/assets/illustrations/smartfarming.jpg"
-                sx={{ height: 260, mx: 'auto', my: { xs: 5, sm: 10 } }}
+                src="/assets/illustrations/stethoscope-2-svgrepo-com.svg"
+                sx={{ height: 160, mx: 'auto', my: { xs: 4, sm: 2 } }}
               />
+              <Typography sx={{ color: 'text.secondary' }}>
+                Tailored features for medical professionals and institutions.
+              </Typography>
             </StyledContent>
           </Grid>
         </Grid>
 
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={4}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
-              <Box
-                component="img"
-                src="/assets/illustrations/manageplants.jpeg"
-                sx={{ height: 260, mx: 'auto', my: { xs: 5, sm: 10 } }}
-              />
-            </StyledContent>
-          </Grid>
-          <Grid item xs={12} md={6} lg={8}>
-            <StyledContent sx={{ textAlign: 'center', alignItems: 'center' }}>
-              <Typography variant="h3" paragraph>
-                Manage & Grow your food
-              </Typography>
-
-              <Typography marginBottom={10} sx={{ color: 'text.secondary' }}>
-                We will use AI *IoT* and mobile apps to let every normal person capable of planting and taking care of
-                their plants, by giving them clear and simple instructions on what to do. This system can also be
-                automated so the machines can do the work when people are not at home. This system will be connected,
-                showing the products, prices, and availabilities of the products on different sites and proximities,
-                allowing citizens of compounds to exchange
-              </Typography>
-
-              <Button to="/register" size="large" variant="contained" component={RouterLink}>
-                Get started
-              </Button>
-            </StyledContent>
-          </Grid>
-        </Grid>
-
-        
       </Container>
     </>
   );

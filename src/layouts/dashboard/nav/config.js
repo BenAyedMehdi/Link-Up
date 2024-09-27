@@ -17,19 +17,24 @@ const navConfig = [
     icon: icon('ic_analytics'),
   },
   {
+    title: 'Manage Applicants',
+    path: '/dashboard/products',
+    icon: icon('ic_user'),
+  },
+  {
     title: 'Manage Users',
+    path: '/dashboard/user',
+    icon: icon('ic_user'),
+  },
+  {
+    title: 'Manage Applications',
     path: '/dashboard/reports',
     icon: icon('ic_blog'),
   },
   {
-    title: 'Manage Applications',
-    path: '/dashboard/products',
-    icon: icon('ic_cart'),
-  },
-  {
     title: 'Others',
     path: '/dashboard/companies',
-    icon: icon('ic_user'),
+    icon: icon('ic_cart'),
   },
 ];
 

@@ -96,7 +96,7 @@ export default function MilestonesPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back to your smart sustainable farm
+          Hi, Welcome back to Link Up Management Dashboard
         </Typography>
 
         <Grid container spacing={3}>
@@ -106,13 +106,13 @@ export default function MilestonesPage() {
               <CardContent>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6} md={3}>
-                    <AppWidgetSummary title="Weekly Productions (kg)" total={14} icon={'ant-design:android-filled'} />
+                    <AppWidgetSummary title="Active verified users" total={841} icon={'ant-design:android-filled'} />
                   </Grid>
 
                   <Grid item xs={12} sm={6} md={3}>
                     <AppWidgetSummary
-                      title="Plant types produced"
-                      total={38}
+                      title="Open positions"
+                      total={139}
                       color="info"
                       icon={'ant-design:apple-filled'}
                     />
@@ -120,8 +120,8 @@ export default function MilestonesPage() {
 
                   <Grid item xs={12} sm={6} md={3}>
                     <AppWidgetSummary
-                      title="CO2 Emission saved"
-                      total={1723315}
+                      title="Application submitted"
+                      total={1284}
                       color="warning"
                       icon={'ant-design:windows-filled'}
                     />
@@ -129,8 +129,8 @@ export default function MilestonesPage() {
 
                   <Grid item xs={12} sm={6} md={3}>
                     <AppWidgetSummary
-                      title="Money saved (in HUF)"
-                      total={23000}
+                      title="Hospital Client Partners"
+                      total={16}
                       color="error"
                       icon={'ant-design:bug-filled'}
                     />

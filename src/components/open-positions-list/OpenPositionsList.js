@@ -22,6 +22,7 @@ import {
 import ClearIcon from '@mui/icons-material/Clear';
 import Iconify from '../iconify';
 import useResponsive from '../../hooks/useResponsive';
+import SearchOpenPosition from '../search-open-positions/SearchOpenPosition';
 
 // ----------------------------------------------------------------------
 
@@ -69,82 +70,7 @@ export default function OpenPositionsList() {
   return (
     <>
       <Container maxWidth="xl">
-        <Card sx={{ margin: 3 }}>
-          <CardHeader
-            title="Find Your Perfect Medical Job"
-            action={
-              <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-                New Open Position
-              </Button>
-            }
-          />
-          <CardContent>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  fullWidth
-                  label="Search Jobs"
-                  variant="outlined"
-                  value={searchTerm}
-                  onChange={handleSearchChange}
-                  InputProps={{
-                    endAdornment: searchTerm &&(
-                      <InputAdornment position="end">
-                        <IconButton onClick={handleClearSearch}>
-                          <ClearIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel>Location</InputLabel>
-                  <Select value={locationFilter} onChange={handleLocationChange} label="Location">
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value="New York">New York</MenuItem>
-                    <MenuItem value="San Francisco">San Francisco</MenuItem>
-                    <MenuItem value="Los Angeles">Los Angeles</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel>Job Type</InputLabel>
-                  <Select value={jobTypeFilter} onChange={handleJobTypeChange} label="Job Type">
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value="Full-Time">Full-Time</MenuItem>
-                    <MenuItem value="Part-Time">Part-Time</MenuItem>
-                    <MenuItem value="Contract">Contract</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth variant="outlined">
-                  <InputLabel>Specialty</InputLabel>
-                  <Select value={specialtyFilter} onChange={handleSpecialtyChange} label="Specialty">
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value="Cardiology">Cardiology</MenuItem>
-                    <MenuItem value="Neurology">Neurology</MenuItem>
-                    <MenuItem value="Pediatrics">Pediatrics</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12} md={12}>
-                <Button variant="contained" fullWidth size="large">
-                  Search
-                </Button>
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Card>
+        <SearchOpenPosition />
 
         <Grid container spacing={3}>
           {filteredJobs.map((job, index) => (

@@ -8,7 +8,6 @@ import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import Page404 from './pages/Page404';
-import AllProductsPage from './pages/AllProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import MilestonesPage from './pages/MilestonesPage';
 import ReportsPage from './pages/ReportsPage';
@@ -19,6 +18,7 @@ import AddCompanyPage from './pages/AddCompanyPage';
 import ContactsPage from './pages/ContactsPage';
 import OurProductsPage from './pages/OurProductsPage';
 import ProductIdeaPage from './pages/ProductIdeaPage';
+import SearchApplicantsPage from './pages/SearchApplicantsPage';
 
 // ----------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ export default function Router() {
         { path: 'app', element: <MilestonesPage /> },
         { path: 'analytics', element: <AnalyticsPage /> },
         { path: 'reports', element: <ReportsPage /> },
-        { path: 'products', element: <AllProductsPage /> },
+        { path: 'applicants', element: <SearchApplicantsPage /> },
         { path: 'companies', element: <CompaniesPage /> },
 
         { path: 'user', element: <UserPage /> },

@@ -66,12 +66,15 @@ export default function HomeNav() {
           <Button color="secondary" variant="text" href="open-positions">
             Jobs
           </Button>
-          <Button color="secondary" variant="text" href="pricing">
+          <Button color="secondary" variant="text" href="login">
+            Login
+          </Button>
+          {/* <Button color="secondary" variant="text" href="pricing">
             Services
           </Button>
           <Button color="secondary" variant="text" href="contact">
             Contact
-          </Button>
+          </Button> */}
           <Button
             color="secondary"
             variant="contained"
@@ -79,9 +82,9 @@ export default function HomeNav() {
               fontSize: '14px',
               fontWeight: 'bold',
             }}
-            href="dashboard"
+            href="register"
           >
-            Dashboard
+            Register
           </Button>
 
         </Stack>

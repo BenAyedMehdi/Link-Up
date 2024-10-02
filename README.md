@@ -1,67 +1,20 @@
-# [Demo](https://menjateam.netlify.app/)
-# Link Up | A Recruitment
+# Overview
 
-# TODO
-- Creating development branch
+## Description
+This project is a **Medical Recruitment Platform** designed to connect healthcare professionals with job opportunities at medical institutions. The platform allows users to register, manage their profiles, search for jobs, and apply for positions directly. 
 
-![preview](public/assets/preview1.JPG)
-![preview](public/assets/preview2.JPG)
+The frontend is built using **React** and **Material-UI** to ensure a modern and responsive interface.
 
-## Introduction
-This web application is my team's solution  in [MOME Social Impact Hackathon](https://mome.hu/en/social-impact-hackathon). 
+## Company Details
+- **Company Name**: LinkUp
+- **Website**: [www.linkup.com](https://www.linkup.com)
+- **Contact**: info@linkup.com
 
-## Solution
-The designed solution is a platform that makes hydroponics technology for farming vegetables easy and accessible for cities citizens, so we can maximize the production, use the spaces efficiently, and make the most needed veggies accessible for the citizens and with low costs. 
+## Core Functionalities
+- **User Registration**: Users can register and create their own accounts.
+- **Profile Management**: Users can edit and update personal and professional details.
+- **Job Search**: Search for job listings based on profession, location, and more.
+- **Job Applications**: Apply for job opportunities directly through the platform.
+- **Multi-language Support**: Available in both English and German.
+- **Responsive Design**: Optimized for mobile, tablet, and desktop.
 
-## Mission
-Our mission is to give you full control over your food. We are here to help you growing your own fruits and vegetables. Now you can choose to decide, plant, monitor and eat the products you grow.
-
-
-## Technical details
-The Take Off project is a React application that allows users to manage their data/assets more intuitively through a cutting edge management platform.
-
-The application is built using React, Redux, and React Router. The application is built using the following technologies:
-
-- React
-- Redux
-- React Router
-- React Bootstrap
-- React Toastify
-- Material UI
-
-## Installation
-
-To install the application, run the following commands:
-
-```bash
-git clone https://github.com/BenAyedMehdi/Menja
-cd takeoff
-npm install
-```
-
-## Running the application
-
-To run the application, run the following command:
-
-```bash
-npm start
-```
-
-## Building the application
-
-To build the application, run the following command:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-The application is deployed on Netlify.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
-
-
-- [**Mahdi Ben Ayed**](https://github.com/BenAyedMehdi)

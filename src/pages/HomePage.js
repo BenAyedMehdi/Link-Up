@@ -35,34 +35,7 @@ export default function HomePage() {
         <title> Link Up Home </title>
       </Helmet>
 
-      {isDesktop ? (
-        <HomeNav />
-      ) : (
-        <>
-          <Logo />
-          <Button color="success" variant="text" href="open-positions">
-            Products
-          </Button>
-          <Button color="success" variant="text" href="pricing">
-            Pricing
-          </Button>
-          <Button color="success" variant="text" href="contact">
-            Contact
-          </Button>
-          <Button
-            color="secondary"
-            variant="outlined"
-            style={{
-              backgroundColor: 'white',
-              fontSize: '14px',
-              fontWeight: 'bold',
-            }}
-            href="dashboard"
-          >
-            Demo
-          </Button>
-        </>
-      )}
+      <HomeNav />
 
       <Container maxWidth="xl">
         <HeroSection />

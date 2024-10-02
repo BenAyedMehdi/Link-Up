@@ -18,7 +18,7 @@ const navConfig = [
   },
   {
     title: 'Manage Applicants',
-    path: '/dashboard/products',
+    path: '/dashboard/applicants',
     icon: icon('ic_user'),
   },
   {

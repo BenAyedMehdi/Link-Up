@@ -31,7 +31,7 @@ export default function HeroSection() {
         Find a Job
       </Button>
       <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
-        Apply for a job in 3 minutes.
+        Apply for a job in less than 3 minutes.
       </Typography>
     </ProductHeroLayout>
   );

@@ -1,22 +1,18 @@
 import * as React from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import Chip from '@mui/material/Chip';
-import XIcon from '@mui/icons-material/X';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import RssFeedIcon from '@mui/icons-material/RssFeed';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailSubscribe from './EmailSubscribe';
 
-export default function AppFooter(props) {
-  const { stackOverflowUrl } = props;
-
+export default function AppFooter() {
   return (
     <Container component="footer">
       <Box
@@ -43,10 +39,10 @@ export default function AppFooter(props) {
       >
         <div>
           <Typography variant="body2" gutterBottom sx={{ fontWeight: 'semiBold' }}>
-            Keep up to date
+            Stay Connected
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1 }}>
-            Join our newsletter for regular updates. No spam ever.
+            Join our newsletter for the latest job opportunities and healthcare insights.
           </Typography>
           <EmailSubscribe />
         </div>
@@ -60,101 +56,40 @@ export default function AppFooter(props) {
         >
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant="body2" sx={{ fontWeight: 'semiBold', mb: 0.5 }}>
-              Products
+              For Professionals
             </Typography>
-            <Link prefetch={false} href={"/"}>
-              Material UI
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Base UI
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              MUI X
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Toolpad
-            </Link>
+            <Link to="/job-search">Job Search</Link>
+            <Link to="/career-resources">Career Resources</Link>
+            <Link to="/profile">Manage Profile</Link>
+            <Link to="/salary-info">Salary Information</Link>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="body2" sx={{ fontWeight: 'semiBold', mb: 0.5 }}>
+              For Employers
+            </Typography>
+            <Link to="/post-job">Post a Job</Link>
+            <Link to="/talent-search">Search Candidates</Link>
+            <Link to="/employer-resources">Employer Resources</Link>
+            <Link to="/pricing">Pricing</Link>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="body2" sx={{ fontWeight: 'semiBold', mb: 0.5 }}>
+              About LinkUp
+            </Typography>
+            <Link to="/about">About Us</Link>
+            <Link to="/mission">Our Mission</Link>
+            <Link to="/team">Our Team</Link>
+            <Link to="/press">Press</Link>
+            <Link to="/contact">Contact Us</Link>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant="body2" sx={{ fontWeight: 'semiBold', mb: 0.5 }}>
               Resources
             </Typography>
-            <Link prefetch={false} href={"/"}>
-              Material Icons
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Templates
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Components
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Customization
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Design Kits
-            </Link>
-          </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant="body2" sx={{ fontWeight: 'semiBold', mb: 0.5 }}>
-              Explore
-            </Typography>
-            <Link prefetch={false} href={"/"}>
-              Documentation
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Store
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Blog
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Showcase
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Roadmap
-            </Link>
-          </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography variant="body2" sx={{ fontWeight: 'semiBold', mb: 0.5 }}>
-              Company
-            </Typography>
-            <Link prefetch={false} href={"/"}>
-              About
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Vision
-            </Link>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Link prefetch={false} href={"/"}>
-                Careers{' '}
-              </Link>
-              <Chip
-                size="small"
-                variant="outlined"
-                color="success"
-                label="Hiring"
-                sx={(theme) => ({
-                  height: 18,
-                  '& .MuiChip-label': {
-                    px: '4px',
-                    fontSize: theme.typography.pxToRem(10),
-                    fontWeight: 'bold',
-                    textTransform: 'uppercase',
-                    letterSpacing: '.04rem',
-                  },
-                })}
-              />
-            </Box>
-            <Link prefetch={false} href={"/"}>
-              Support
-            </Link>
-            <Link prefetch={false} href={"/"}>
-              Privacy policy
-            </Link>
-            <Link prefetch={false} target="_blank" rel="noopener" href="mailto:contact@mui.com">
-              Contact us
-            </Link>
+            <Link to="/blog">Blog</Link>
+            <Link to="/faq">FAQ</Link>
+            <Link to="/testimonials">Testimonials</Link>
+            <Link to="/partners">Partners</Link>
           </Box>
         </Box>
       </Box>
@@ -169,44 +104,19 @@ export default function AppFooter(props) {
         }}
       >
         <Typography variant="caption" sx={{ color: 'text.tertiary', fontWeight: 400 }}>
-          Copyright © {new Date().getFullYear()} Material UI SAS, trading as MUI.
+          © {new Date().getFullYear()} LinkUp. All rights reserved.
         </Typography>
+        <Stack direction="row" spacing={2}>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms-of-service">Terms of Service</Link>
+          <Link to="/accessibility">Accessibility</Link>
+        </Stack>
         <Stack spacing={1} direction="row" useFlexGap sx={{ flexWrap: 'wrap' }}>
           <IconButton
             target="_blank"
-            rel="noopener"
-            href="https://github.com/mui"
-            aria-label="github"
-            title="GitHub"
-            size="small"
-          >
-            <GitHubIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            target="_blank"
-            rel="noopener"
-            href={"/"}
-            aria-label="RSS Feed"
-            title="RSS Feed"
-            size="small"
-          >
-            <RssFeedIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            target="_blank"
-            rel="noopener"
-            href="https://x.com/MUI_hq"
-            aria-label="X/twitter"
-            title="X"
-            size="small"
-          >
-            <XIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            target="_blank"
-            rel="noopener"
-            href="https://www.linkedin.com/company/mui/"
-            aria-label="linkedin"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/company/linkup"
+            aria-label="LinkedIn"
             title="LinkedIn"
             size="small"
           >
@@ -214,13 +124,33 @@ export default function AppFooter(props) {
           </IconButton>
           <IconButton
             target="_blank"
-            rel="noopener"
-            href="https://www.youtube.com/@MUI_hq"
-            aria-label="YouTube"
-            title="YouTube"
+            rel="noopener noreferrer"
+            href="https://www.facebook.com/LinkUpMedical"
+            aria-label="Facebook"
+            title="Facebook"
             size="small"
           >
-            <YouTubeIcon fontSize="small" />
+            <FacebookIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://twitter.com/LinkUpMedical"
+            aria-label="Twitter"
+            title="Twitter"
+            size="small"
+          >
+            <TwitterIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/linkupmedical"
+            aria-label="Instagram"
+            title="Instagram"
+            size="small"
+          >
+            <InstagramIcon fontSize="small" />
           </IconButton>
         </Stack>
       </Stack>

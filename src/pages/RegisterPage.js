@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
@@ -11,6 +13,7 @@ import Iconify from '../components/iconify';
 import { RegisterForm } from '../sections/auth/register';
 import HomeNav from '../components/nav-home';
 
+import { signUp } from '../api/authApi';
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -46,6 +49,24 @@ const StyledContent = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function RegisterPage() {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleRegister = async (userData) => {
+    console.log('Registration data received in RegisterPage:', userData);
+    setIsLoading(true);
+    try {
+      const response = await signUp(userData);
+      console.log('Registration successful:', response);
+      // Redirect to login page or dashboard
+      navigate('/login', { replace: true });
+    } catch (error) {
+      console.error('Registration failed:', error);
+      // Handle error (e.g., show error message to user)
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const mdUp = useResponsive('up', 'md');
 
   return (
@@ -78,7 +99,7 @@ export default function RegisterPage() {
               </Link>
             </Typography>
 
-            <RegisterForm />
+            <RegisterForm onRegister={handleRegister} isLoading={isLoading} />
           </StyledContent>
         </Container>
       </StyledRoot>

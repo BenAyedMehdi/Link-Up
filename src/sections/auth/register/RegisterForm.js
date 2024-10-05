@@ -1,39 +1,75 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // @mui
-import { Grid, Link, Stack, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
+import { Stack, Link, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
 import Iconify from '../../../components/iconify';
 
 // ----------------------------------------------------------------------
 
-export default function RegisterForm() {
-  const navigate = useNavigate();
-
+export default function RegisterForm({ onRegister, isLoading }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  });
 
-  const handleClick = () => {
-    navigate('/dashboard', { replace: true });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form data submitted:', formData);
+    onRegister(formData);
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <Stack spacing={3}>
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+            <TextField
+              fullWidth
+              name="firstName"
+              label="First name"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
+            <TextField
+              fullWidth
+              name="lastName"
+              label="Last name"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
+        </Stack>
 
-        <Grid container>
-          <Grid item xs={12} md={6} lg={6}>
-            <TextField name="firstName" label="First name" />
-          </Grid>
-          <Grid item xs={12} md={6} lg={6}>
-            <TextField name="lastName" label="Last name" />
-          </Grid>
-        </Grid>
-        <TextField name="email" label="Email address" />
         <TextField
+          fullWidth
+          name="email"
+          label="Email address"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <TextField
+          fullWidth
           name="password"
           label="Password"
           type={showPassword ? 'text' : 'password'}
+          value={formData.password}
+          onChange={handleChange}
+          required
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -44,18 +80,28 @@ export default function RegisterForm() {
             ),
           }}
         />
-      </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <Checkbox name="remember" label="Remember me" />
-        <Link variant="subtitle2" underline="hover">
+        <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
+          <Link variant="subtitle2" underline="hover">
           Forgot password?
         </Link>
       </Stack>
 
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={handleClick}>
-        Next
+      <LoadingButton
+        fullWidth
+        size="large"
+        type="submit"
+        variant="contained"
+        loading={isLoading}
+      >
+        Register
       </LoadingButton>
-    </>
+      </Stack>
+    </form>
   );
 }
+
+RegisterForm.propTypes = {
+  onRegister: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};

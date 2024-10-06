@@ -12,3 +12,14 @@ export const signUp = async (userData) => {
     throw error;
   }
 };
+
+export const login = async (loginData) => {
+  try {
+    const response = await axios.post(`${API_URL}/login`, loginData);
+    console.log('API Response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('API Error:', error.response ? error.response.data : error.message);
+    throw error;
+  }
+};

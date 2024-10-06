@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
-
+import { Link, Container, Typography } from '@mui/material';
 // hooks
 import useResponsive from '../hooks/useResponsive';
 // components
-import Logo from '../components/logo';
-import Iconify from '../components/iconify';
+import HomeNav from '../components/nav-home';
 // sections
 import { LoginForm } from '../sections/auth/login';
-import HomeNav from '../components/nav-home';
+// api
+import { login } from '../api/authApi';
 
 // ----------------------------------------------------------------------
 
@@ -46,8 +46,27 @@ const StyledContent = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function LoginPage() {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const mdUp = useResponsive('up', 'md');
-  
+
+  const handleLogin = async (loginData) => {
+    console.log('Login data received in LoginPage:', loginData);
+    setIsLoading(true);
+    try {
+      const response = await login(loginData);
+      console.log('Login successful:', response);
+      // Store the token in localStorage or a more secure storage
+      localStorage.setItem('token', response.token);
+      // Redirect to dashboard
+      navigate('/dashboard', { replace: true });
+    } catch (error) {
+      console.error('Login failed:', error);
+      // Handle error (e.g., show error message to user)
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -78,7 +97,7 @@ export default function LoginPage() {
               <Link href='register' variant="subtitle2">Get started</Link>
             </Typography>
             
-            <LoginForm  />
+            <LoginForm onLogin={handleLogin} isLoading={isLoading} />
           </StyledContent>
         </Container>
       </StyledRoot>

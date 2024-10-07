@@ -54,7 +54,7 @@ export default function DashboardLayout() {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate('/', { replace: true });
+      navigate('/login', { replace: true });
     } catch (error) {
       console.error('Failed to logout:', error);
     }

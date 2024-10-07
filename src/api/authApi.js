@@ -39,3 +39,20 @@ export const getUserInfo = async () => {
     throw error;
   }
 };
+
+export const logout = async () => {
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.post(`${API_URL}/Auth/logout`, null, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log('Logout Response:', response.data);
+    localStorage.removeItem('token'); // Remove the token from local storage
+    return response.data;
+  } catch (error) {
+    console.error('Logout Error:', error.response ? error.response.data : error.message);
+    throw error;
+  }
+};

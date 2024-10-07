@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton, Popover } from '@mui/material';
@@ -25,8 +25,12 @@ const MENU_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-export default function AccountPopover({userInfo}) {
-  const navigate = useNavigate();
+AccountPopover.propTypes = {
+  userInfo: PropTypes.object,
+  onLogout: PropTypes.func,
+};
+
+export default function AccountPopover({ userInfo, onLogout }) {
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {
@@ -38,8 +42,10 @@ export default function AccountPopover({userInfo}) {
   };
 
   const handleLogout = () => {
-    navigate('/', { replace: true });
+    setOpen(null);
+    onLogout();
   };
+
   return (
     <>
       <IconButton

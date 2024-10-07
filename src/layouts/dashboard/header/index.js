@@ -40,9 +40,11 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 Header.propTypes = {
   onOpenNav: PropTypes.func,
+  userInfo: PropTypes.object,
+  onLogout: PropTypes.func,
 };
 
-export default function Header({ onOpenNav, userInfo }) {
+export default function Header({ onOpenNav, userInfo, onLogout }) {
   return (
     <StyledRoot>
       <StyledToolbar>
@@ -69,7 +71,7 @@ export default function Header({ onOpenNav, userInfo }) {
           }}
         >
           <LanguagePopover />
-          <AccountPopover userInfo={userInfo}/>
+          <AccountPopover userInfo={userInfo} onLogout={onLogout} />
         </Stack>
       </StyledToolbar>
     </StyledRoot>

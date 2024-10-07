@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
 //
 import Header from './header';
 import Nav from './nav';
-import { getUserInfo } from '../../api/authApi';
+import { getUserInfo, logout } from '../../api/authApi';
 
 // ----------------------------------------------------------------------
 
@@ -36,6 +36,7 @@ const Main = styled('div')(({ theme }) => ({
 export default function DashboardLayout() {
   const [open, setOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -50,9 +51,18 @@ export default function DashboardLayout() {
     fetchUserInfo();
   }, []);
 
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/', { replace: true });
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };
+
   return (
     <StyledRoot>
-      <Header onOpenNav={() => setOpen(true)} userInfo={userInfo} />
+      <Header onOpenNav={() => setOpen(true)} userInfo={userInfo} onLogout={handleLogout} />
 
       <Nav openNav={open} onCloseNav={() => setOpen(false)} userInfo={userInfo} />
 
